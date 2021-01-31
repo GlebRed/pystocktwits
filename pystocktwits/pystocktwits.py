@@ -92,7 +92,11 @@ class Streamer():
                             .format(r.status_code))
 
         raw_json = r.json()
-        return raw_json
+
+        for x in range(len(raw_json['messages'])):
+            print({'body': raw_json['messages'][x]['body'], 'sentiment': raw_json['messages'][x]['entities']['sentiment']})
+
+#         return raw_json['messages'][0]['id']
 
     def get_specified_conversation_msgs(self, conversation_id, since=0, max=0, limit=0, callback=None):
 
