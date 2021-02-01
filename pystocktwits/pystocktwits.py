@@ -94,7 +94,7 @@ class Streamer():
         raw_json = r.json()
 
         for x in range(len(raw_json['messages'])):
-            print({'body': raw_json['messages'][x]['body'], 'sentiment': raw_json['messages'][x]['entities']['sentiment']})
+            print({'body': raw_json['messages'][x]['body'].encode().decode('UTF-8'), 'sentiment': raw_json['messages'][x]['entities']['sentiment']})
 
 #         return raw_json['messages'][0]['id']
 
